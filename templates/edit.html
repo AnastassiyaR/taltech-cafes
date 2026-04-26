@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4">Edit cafe</h2>
+
+<div class="card" style="max-width: 560px;">
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Name <span class="text-danger">*</span></label>
+                <input type="text" name="name" class="form-control"
+                       value="{{ cafe.name }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Location <span class="text-danger">*</span></label>
+                <input type="text" name="location" class="form-control"
+                       value="{{ cafe.location }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Provider <span class="text-danger">*</span></label>
+                <input type="text" name="provider" class="form-control"
+                       value="{{ cafe.provider }}" required>
+            </div>
+            <div class="row g-3 mb-4">
+                <div class="col">
+                    <label class="form-label fw-semibold">Opens <span class="text-danger">*</span></label>
+                    <input type="time" name="time_open" class="form-control"
+                           value="{{ cafe.time_open }}" required>
+                </div>
+                <div class="col">
+                    <label class="form-label fw-semibold">Closes <span class="text-danger">*</span></label>
+                    <input type="time" name="time_closed" class="form-control"
+                           value="{{ cafe.time_closed }}" required>
+                </div>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-lg me-1"></i>Save changes
+                </button>
+                <a href="/" class="btn btn-outline-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
