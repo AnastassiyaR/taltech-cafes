@@ -6,9 +6,7 @@ from web.routes import web
 
 
 app = Flask(__name__)
-app.secret_key = "fallback-only-for-dev"
 CORS(app)
-
 app.register_blueprint(api)
 app.register_blueprint(web)
 
@@ -20,6 +18,5 @@ def handle_error(e):
     return jsonify({"error": str(e.description)}), e.code
 
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+if __name__ == '__main__':
+    app.run(debug=True)
